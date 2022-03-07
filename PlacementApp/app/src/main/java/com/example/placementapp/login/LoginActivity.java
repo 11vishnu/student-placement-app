@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.placementapp.MainActivity;
+import com.example.placementapp.constants.AppConstants;
 import com.example.placementapp.databinding.ActivityLoginBinding;
 import com.example.placementapp.databinding.ActivityMainBinding;
 
@@ -32,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void startMainActivity(){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MainActivity.class).putExtra(AppConstants.INTENT_USER_TYPE,binding.edtUsername.getText().toString());
         startActivity(intent);
     }
 }

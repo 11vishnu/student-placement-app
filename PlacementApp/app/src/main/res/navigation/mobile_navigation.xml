@@ -13,15 +13,15 @@
 
     <fragment
         android:id="@+id/nav_staff"
-        android:name="com.example.placementapp.ui.gallery.StaffFragment"
+        android:name="com.example.placementapp.ui.staff.StaffFragment"
         android:label="@string/txt_staff"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_companies"
-        android:name="com.example.placementapp.ui.slideshow.SlideshowFragment"
+        android:name="com.example.placementapp.ui.company.CompanyListFragment"
         android:label="@string/txt_companies"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_company" />
 
     <fragment
         android:id="@+id/nav_student"

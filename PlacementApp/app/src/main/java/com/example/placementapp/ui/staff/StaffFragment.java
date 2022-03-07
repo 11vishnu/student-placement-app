@@ -1,4 +1,4 @@
-package com.example.placementapp.ui.gallery;
+package com.example.placementapp.ui.staff;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.placementapp.R;
 import com.example.placementapp.databinding.FragmentGalleryBinding;
 
 public class StaffFragment extends Fragment {

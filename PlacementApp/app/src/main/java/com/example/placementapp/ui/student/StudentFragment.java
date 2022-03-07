@@ -12,9 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.placementapp.databinding.FragmentSlideshowBinding;
 import com.example.placementapp.databinding.FragmentStudentBinding;
-import com.example.placementapp.ui.slideshow.SlideshowViewModel;
 
 public class StudentFragment  extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.example.placementapp.ui.gallery;
+package com.example.placementapp.ui.staff;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
