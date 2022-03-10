@@ -6,4 +6,7 @@
     <string name="txt_logout">Logout</string>
     <string name="txt_company_name">Company Name</string>
     <string name="txt_location">Location</string>
+    <string name="txt_department">Department</string>
+    <string name="txt_email_id">Email Id</string>
+    <string name="txt_staff_name">Staff Name</string>
 </resources>

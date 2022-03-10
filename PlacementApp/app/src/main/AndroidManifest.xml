@@ -13,9 +13,7 @@
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.PlacementApp.NoActionBar">
-        </activity>
-
+            android:theme="@style/Theme.PlacementApp.NoActionBar"></activity>
         <activity
             android:name=".login.LoginActivity"
             android:exported="true"
