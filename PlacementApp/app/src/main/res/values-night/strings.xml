@@ -9,4 +9,8 @@
     <string name="txt_department">Department</string>
     <string name="txt_email_id">Email Id</string>
     <string name="txt_staff_name">Staff Name</string>
+    <string name="txt_student_name">Student Name</string>
+    <string name="txt_internship">Internship</string>
+    <string name="txt_student_reg_no">"Reg. No. : "</string>
+    <string name="txt_duration_label">"Duration : "</string>
 </resources>

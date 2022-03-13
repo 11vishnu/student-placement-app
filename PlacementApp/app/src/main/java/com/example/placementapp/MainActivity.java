@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         MenuItem drawer_menu_staff = menu.findItem(R.id.nav_staff);
         MenuItem drawer_menu_companies = menu.findItem(R.id.nav_companies);
         MenuItem drawer_menu_students = menu.findItem(R.id.nav_student);
+        MenuItem drawer_menu_internship = menu.findItem(R.id.nav_internship);
         MenuItem drawer_menu_logout = menu.findItem(R.id.nav_logout);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(extras.getString(AppConstants.INTENT_USER_TYPE).contains(AppConstants.CONST_FINAL_ADMIN_TYPE)){
             mAppBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.nav_home, R.id.nav_staff, R.id.nav_companies,R.id.nav_student,R.id.nav_logout)
+                    R.id.nav_home, R.id.nav_staff, R.id.nav_companies,R.id.nav_student,R.id.nav_internship,R.id.nav_logout)
                     .setOpenableLayout(drawer)
                     .build();
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -58,11 +59,12 @@ public class MainActivity extends AppCompatActivity {
             drawer_menu_companies.setVisible(true);
             drawer_menu_students.setVisible(true);
             drawer_menu_logout.setVisible(true);
+            drawer_menu_internship.setVisible(true);
 
 
         }else if (extras.getString(AppConstants.INTENT_USER_TYPE).contains(AppConstants.CONST_FINAL_STAFF_TYPE)){
             mAppBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.nav_home, R.id.nav_companies,R.id.nav_student,R.id.nav_logout)
+                    R.id.nav_home, R.id.nav_companies,R.id.nav_student,R.id.nav_internship,R.id.nav_logout)
                     .setOpenableLayout(drawer)
                     .build();
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -72,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             drawer_menu_students.setVisible(true);
             drawer_menu_companies.setVisible(true);
             drawer_menu_logout.setVisible(true);
+            drawer_menu_internship.setVisible(true);
         }else{
             mAppBarConfiguration = new AppBarConfiguration.Builder(
                     R.id.nav_home, R.id.nav_companies,R.id.nav_logout)
@@ -81,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
             drawer_menu_companies.setVisible(true);
             drawer_menu_students.setVisible(false);
             drawer_menu_logout.setVisible(true);
+            drawer_menu_internship.setVisible(true);
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
             NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
             NavigationUI.setupWithNavController(navigationView, navController);

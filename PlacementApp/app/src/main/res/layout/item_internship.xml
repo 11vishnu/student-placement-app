@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/student_item"
+    android:id="@+id/intern_item"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -12,47 +12,92 @@
     android:layout_marginRight="@dimen/_5sdp"
     android:backgroundTint="@color/white"
     android:layout_marginTop="@dimen/_5sdp"
-
     >
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:innerRadius="0dp"
-        android:shape="ring"
-        app:cardCornerRadius="@dimen/_45sdp"
-     app:layout_constraintTop_toTopOf="parent"
+    <ImageView
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:src="@drawable/intern_ic"
         app:layout_constraintRight_toLeftOf="@+id/guide3v"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginRight="@dimen/_20sdp">
-
-        <ImageView
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_70sdp"
-            android:background="@drawable/graduate_stud_ic"
-            android:padding="@dimen/_25sdp"/>
-    </androidx.cardview.widget.CardView>
-
+        android:layout_marginRight="@dimen/_20sdp"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintGuide_percent="0.3"
+        app:layout_constraintGuide_percent="0.2"
         android:orientation="vertical"
         android:id="@+id/guide3v"/>
+
+    <TextView
+        android:id="@+id/studentRegLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintLeft_toRightOf="@+id/guide3v"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@android:color/holo_blue_dark"
+        android:text="@string/txt_student_reg_no"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"/>
+
+    <TextView
+        android:id="@+id/studentRegValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toLeftOf="@+id/guide60v"
+        app:layout_constraintLeft_toRightOf="@+id/studentRegLabel"
+        app:layout_constraintTop_toTopOf="@+id/studentRegLabel"
+        android:textColor="@android:color/holo_orange_dark"
+        tools:text="123124"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="@dimen/_10sdp"/>
+
+    <TextView
+        android:id="@+id/durationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/studentRegValue"
+        android:textColor="@android:color/holo_blue_dark"
+        android:text="@string/txt_duration_label"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_10sdp"/>
+
+    <TextView
+        android:id="@+id/durationValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/durationLabel"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/studentRegLabel"
+        android:textColor="@android:color/holo_orange_dark"
+        tools:text="2 months"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="@dimen/_10sdp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide60v"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.6"
+        android:orientation="vertical"/>
 
     <TextView
         android:id="@+id/studentNameLabel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toRightOf="@+id/guide3v"
-        app:layout_constraintTop_toTopOf="parent"
-        android:paddingTop="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/studentRegLabel"
+        android:paddingTop="@dimen/_3sdp"
         android:textColor="@android:color/holo_blue_dark"
-        android:text="@string/txt_student_name"
+        android:text="@string/txt_student"
         android:fontFamily="sans-serif-medium"
         android:textSize="@dimen/_11sdp"
         android:layout_marginLeft="@dimen/_10sdp"/>
@@ -61,66 +106,41 @@
         android:id="@+id/studentNameValue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/studentNameLabel"
+        app:layout_constraintLeft_toRightOf="@+id/studentNameLabel"
+        android:textColor="@android:color/holo_orange_dark"
+        tools:text="Sample location "
+        android:paddingTop="@dimen/_3sdp"
+        android:gravity="left"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:textSize="@dimen/_11sdp"/>
+
+    <TextView
+        android:id="@+id/companyNameLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintLeft_toRightOf="@+id/guide3v"
         app:layout_constraintTop_toBottomOf="@+id/studentNameLabel"
-        app:layout_constraintRight_toRightOf="parent"
-        android:textColor="@android:color/holo_orange_dark"
-        tools:text="Student a"
-        android:fontFamily="sans-serif-medium"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:textSize="@dimen/_11sdp"/>
-
-    <TextView
-        android:id="@+id/studentDepartmentNameLabel"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/guide3v"
-        app:layout_constraintTop_toBottomOf="@+id/studentNameValue"
         android:paddingTop="@dimen/_3sdp"
         android:textColor="@android:color/holo_blue_dark"
-        android:text="@string/txt_department"
+        android:text="@string/txt_company_name"
         android:fontFamily="sans-serif-medium"
         android:textSize="@dimen/_11sdp"
         android:layout_marginLeft="@dimen/_10sdp"/>
 
     <TextView
-        android:id="@+id/studentDepartmentNameValue"
+        android:id="@+id/companyNameValue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/guide3v"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studentDepartmentNameLabel"
-        android:layout_marginBottom="@dimen/_10sdp"
+        app:layout_constraintTop_toTopOf="@+id/companyNameLabel"
+        app:layout_constraintLeft_toRightOf="@+id/companyNameLabel"
         android:textColor="@android:color/holo_orange_dark"
-        tools:text="CSE"
-        android:fontFamily="sans-serif-medium"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:textSize="@dimen/_11sdp"/>
-
-    <TextView
-        android:id="@+id/studentEmailNameLabel"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/guide3v"
-        app:layout_constraintTop_toBottomOf="@+id/studentDepartmentNameValue"
+        tools:text="Sample company"
         android:paddingTop="@dimen/_3sdp"
-        android:textColor="@android:color/holo_blue_dark"
-        android:text="@string/txt_email_id"
-        android:fontFamily="sans-serif-medium"
-        android:textSize="@dimen/_11sdp"
-        android:layout_marginLeft="@dimen/_10sdp"/>
-
-    <TextView
-        android:id="@+id/studentEmailNameValue"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/guide3v"
-        app:layout_constraintTop_toBottomOf="@+id/studentEmailNameLabel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:textColor="@android:color/holo_orange_dark"
-        tools:text="sampleemail@gmail.com"
+        android:gravity="left"
         android:fontFamily="sans-serif-medium"
         android:layout_marginLeft="@dimen/_10sdp"
         android:textSize="@dimen/_11sdp"/>
