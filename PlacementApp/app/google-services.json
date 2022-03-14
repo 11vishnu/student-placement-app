@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1079300575906",
+    "project_id": "ksrctplacementapp-38ddc",
+    "storage_bucket": "ksrctplacementapp-38ddc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079300575906:android:715904d135b6220a1a3dfb",
+        "android_client_info": {
+          "package_name": "com.example.placementapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1079300575906-5jceh2bl978529ivnua3vbp0i8t7sl30.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK5xol-wAM0lEpqc2cVVvv2UomJrPDxKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1079300575906-5jceh2bl978529ivnua3vbp0i8t7sl30.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
