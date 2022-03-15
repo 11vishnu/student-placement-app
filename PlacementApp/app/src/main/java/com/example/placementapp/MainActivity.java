@@ -1,5 +1,9 @@
 package com.example.placementapp;
 
+import static com.example.placementapp.constants.AppConstants.CONST_FINAL_STAFF_TYPE;
+import static com.example.placementapp.constants.AppConstants.CONST_VAL_ADMIN_TYPE;
+import static com.example.placementapp.constants.AppConstants.CONST_VAL_STAFF_TYPE;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -79,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Bundle extras = getIntent().getExtras();
 
-        if(extras.getString(AppConstants.INTENT_USER_TYPE).contains(AppConstants.CONST_FINAL_ADMIN_TYPE)){
+        if(extras.getString(AppConstants.INTENT_USER_TYPE).contains(CONST_VAL_ADMIN_TYPE)){
             mAppBarConfiguration = new AppBarConfiguration.Builder(
                     R.id.nav_home, R.id.nav_staff, R.id.nav_companies,R.id.nav_student,R.id.nav_logout)
                     .setOpenableLayout(drawer)
@@ -94,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             drawer_menu_logout.setVisible(true);
 
 
-        }else if (extras.getString(AppConstants.INTENT_USER_TYPE).contains(AppConstants.CONST_FINAL_STAFF_TYPE)){
+        }else if (extras.getString(AppConstants.INTENT_USER_TYPE).contains(CONST_VAL_STAFF_TYPE)){
             mAppBarConfiguration = new AppBarConfiguration.Builder(
                     R.id.nav_home, R.id.nav_companies,R.id.nav_student,R.id.nav_logout)
                     .setOpenableLayout(drawer)
