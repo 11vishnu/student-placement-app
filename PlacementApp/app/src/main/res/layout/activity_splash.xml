@@ -13,9 +13,10 @@
         android:text="@string/app_name"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/growingPlantAnim"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/_20sdp"
         android:fontFamily="sans-serif-medium"
-        android:textColor="@color/lime_green"/>
+        android:textColor="@color/sky_blue"/>
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/growingPlantAnim"

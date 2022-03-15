@@ -5,6 +5,7 @@ import static com.example.placementapp.constants.AppConstants.CONST_FINAL_STUDEN
 import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREFERENCE;
 import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_UID;
 import static com.example.placementapp.constants.AppConstants.CONST_VAL_STAFF_TYPE;
+import static com.example.placementapp.constants.AppConstants.CONST_VAL_STUDENT_TYPE;
 import static com.example.placementapp.constants.AppConstants.USER;
 import static com.example.placementapp.constants.AppConstants.USER_TYPE_CONST;
 
@@ -66,7 +67,7 @@ public class SplashActivity  extends AppCompatActivity {
             public void run() {
                 checkUserSignedInFirebase();
             }
-        }, 3000);
+        }, 2000);
 
     }
 
@@ -118,13 +119,13 @@ public class SplashActivity  extends AppCompatActivity {
 
     private void startMainActivity(String userTypeConst){
         if(userTypeConst.contains(AppConstants.CONST_VAL_ADMIN_TYPE)){
-            Intent intent = new Intent(this, MainActivity.class).putExtra(AppConstants.INTENT_USER_TYPE,AppConstants.CONST_FINAL_ADMIN_TYPE);
+            Intent intent = new Intent(this, MainActivity.class).putExtra(AppConstants.INTENT_USER_TYPE,AppConstants.CONST_VAL_ADMIN_TYPE);
             startActivity(intent);
         }else if (userTypeConst.contains(CONST_VAL_STAFF_TYPE)){
-            Intent intent = new Intent(this, MainActivity.class).putExtra(AppConstants.INTENT_USER_TYPE,CONST_FINAL_STAFF_TYPE);
+            Intent intent = new Intent(this, MainActivity.class).putExtra(AppConstants.INTENT_USER_TYPE,CONST_VAL_STAFF_TYPE);
             startActivity(intent);
         }else{
-            Intent intent = new Intent(this, MainActivity.class).putExtra(AppConstants.INTENT_USER_TYPE,CONST_FINAL_STUDENT_TYPE);
+            Intent intent = new Intent(this, MainActivity.class).putExtra(AppConstants.INTENT_USER_TYPE,CONST_VAL_STUDENT_TYPE);
             startActivity(intent);
         }
     }

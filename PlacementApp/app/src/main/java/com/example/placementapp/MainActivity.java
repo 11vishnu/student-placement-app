@@ -150,11 +150,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 break;
             }
+           case R.id.nav_staff: {
+                NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+                navController.navigate(R.id.nav_staff);
+                break;
+            }
+            case R.id.nav_student: {
+                NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+                navController.navigate(R.id.nav_student);
+                break;
+            }
+            case R.id.nav_companies: {
+                NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+                navController.navigate(R.id.nav_companies);
+                break;
+            }
+            case R.id.nav_internship: {
+                NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+                navController.navigate(R.id.nav_internship);
+                break;
+            }
+
         }
         //close navigation drawer
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
