@@ -1,16 +1,16 @@
-package com.example.placementapp.ui.student;
+package com.example.placementapp.ui.internship;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class StudentVIewModel extends ViewModel {
+public class IntershipViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public StudentVIewModel() {
+    public IntershipViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is student fragment");
+        mText.setValue("This is slideshow fragment");
     }
 
     public LiveData<String> getText() {
