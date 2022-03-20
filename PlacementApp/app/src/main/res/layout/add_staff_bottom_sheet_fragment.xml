@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.05"
+        android:id="@+id/guide5v"
+        android:orientation="vertical"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.95"
+        android:orientation="vertical"
+        android:id="@+id/guide95v"/>
+
+    <TextView
+        android:id="@+id/txtHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:text="@string/txt_add_staff"
+        android:background="@color/sky_blue"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14sdp"
+        android:fontFamily="sans-serif-condensed-medium"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/staffEmailTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintEnd_toEndOf="@+id/guide95v"
+        app:layout_constraintStart_toStartOf="@+id/guide5v"
+        app:layout_constraintTop_toBottomOf="@+id/txtHeader"
+        android:layout_marginTop="@dimen/_20sdp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/staffEmilTextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textSize="@dimen/_12sdp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/staffPasswordTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/txt_password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintEnd_toEndOf="@+id/guide95v"
+        app:layout_constraintStart_toStartOf="@+id/guide5v"
+        app:layout_constraintTop_toBottomOf="@+id/staffEmailTextInputLayout"
+        android:layout_marginTop="@dimen/_6sdp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/staffPwdTextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textSize="@dimen/_12sdp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/staffNameTextInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Staff Name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintEnd_toEndOf="@+id/guide95v"
+        app:layout_constraintStart_toStartOf="@+id/guide5v"
+        app:layout_constraintTop_toBottomOf="@+id/staffPasswordTextInputLayout"
+        android:layout_marginTop="@dimen/_20sdp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/staffNameTextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/_12sdp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/btnAddStaff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:text="@string/txt_add_staff"
+        android:background="@drawable/rounded_rect"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toRightOf="@+id/guide5v"
+        app:layout_constraintRight_toLeftOf="@+id/guide95v"
+        app:layout_constraintTop_toBottomOf="@+id/staffNameTextInputLayout"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textSize="@dimen/_14sdp"
+        android:backgroundTint="@color/sky_blue"/>
+
+    <TextView
+        android:id="@+id/bottomGap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_1sdp"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddStaff"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

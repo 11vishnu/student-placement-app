@@ -11,10 +11,12 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.placementapp.constants.AppConstants;
 import com.example.placementapp.login.LoginActivity;
+import com.example.placementapp.ui.dataModels.User;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -74,6 +76,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = binding.navView;
         Menu menu =navigationView.getMenu();
 
+        View header = navigationView.getHeaderView(0);
+        TextView name = (TextView) header.findViewById(R.id.name);
+        TextView emailId = (TextView)header.findViewById(R.id.textViewEmailId);
+
+
+
         MenuItem drawer_menu_staff = menu.findItem(R.id.nav_staff);
         MenuItem drawer_menu_companies = menu.findItem(R.id.nav_companies);
         MenuItem drawer_menu_students = menu.findItem(R.id.nav_student);
@@ -84,7 +92,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Bundle extras = getIntent().getExtras();
 
-        if(extras.getString(AppConstants.INTENT_USER_TYPE).contains(CONST_VAL_ADMIN_TYPE)){
+        Intent i = getIntent();
+        User usr = (User)i.getSerializableExtra(AppConstants.USER);
+
+        if(!usr.getUserName().isEmpty()){
+            name.setText(usr.getUserName());
+        }
+        if(!usr.getUserType().isEmpty()){
+            emailId.setText(usr.getUserEmailId());
+        }
+
+        if(usr.getUserType().contains(CONST_VAL_ADMIN_TYPE)){
             mAppBarConfiguration = new AppBarConfiguration.Builder(
                     R.id.nav_home, R.id.nav_staff, R.id.nav_companies,R.id.nav_student,R.id.nav_internship,R.id.nav_logout)
                     .setOpenableLayout(drawer)
@@ -100,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             drawer_menu_internship.setVisible(true);
 
 
-        }else if (extras.getString(AppConstants.INTENT_USER_TYPE).contains(CONST_VAL_STAFF_TYPE)){
+        }else if (usr.getUserType().contains(CONST_VAL_STAFF_TYPE)){
             mAppBarConfiguration = new AppBarConfiguration.Builder(
                     R.id.nav_home, R.id.nav_companies,R.id.nav_student,R.id.nav_internship,R.id.nav_logout)
                     .setOpenableLayout(drawer)

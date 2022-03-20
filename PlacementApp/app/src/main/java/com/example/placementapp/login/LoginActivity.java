@@ -23,6 +23,7 @@ import com.example.placementapp.MainActivity;
 import com.example.placementapp.constants.AppConstants;
 import com.example.placementapp.databinding.ActivityLoginBinding;
 import com.example.placementapp.databinding.ActivityMainBinding;
+import com.example.placementapp.ui.dataModels.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -31,6 +32,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -105,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void getUserType(FirebaseUser user){
-        databaseReference.child(user.getUid()).child(USER_TYPE_CONST).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        databaseReference.child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (!task.isSuccessful()) {
@@ -113,13 +118,21 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else {
                     Log.d("firebase", "user type const " +String.valueOf(task.getResult().getValue()));
-                    startMainActivity(String.valueOf(task.getResult().getValue()));
+
+                    Map<String, String> map = (Map<String, String>) task.getResult().getValue();
+
+                    Gson gson = new Gson();
+                    JsonElement jsonElement = gson.toJsonTree(map);
+                    User user = gson.fromJson(jsonElement, User.class);
+
+                   //startMainActivity((User) task.getResult().getValue());
+                    startMainActivity(user);
                 }
             }
         });
     }
 
-    private void startMainActivity(String userTypeConst){
+   /* private void startMainActivity(String userTypeConst){
         if(userTypeConst.contains(AppConstants.CONST_VAL_ADMIN_TYPE)){
             Intent intent = new Intent(this, MainActivity.class).putExtra(AppConstants.INTENT_USER_TYPE,AppConstants.CONST_VAL_ADMIN_TYPE);
             startActivity(intent);
@@ -130,6 +143,12 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(this, MainActivity.class).putExtra(AppConstants.INTENT_USER_TYPE,CONST_VAL_STUDENT_TYPE);
             startActivity(intent);
         }
+    }*/
+
+    private void startMainActivity(User usr){
+        Intent intent = new Intent(this, MainActivity.class).putExtra(AppConstants.USER,usr);
+        startActivity(intent);
+
     }
 
 }

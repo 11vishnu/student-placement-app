@@ -13,4 +13,8 @@
     <string name="txt_internship">Internship</string>
     <string name="txt_student_reg_no">"Reg. No. : "</string>
     <string name="txt_duration_label">"Duration : "</string>
+    <string name="txt_add_staff">Add Staff</string>
+    <string name="txt_password">Password</string>
+    <string name="txt_invalid_mail_id">Invalid email id</string>
+    <string name="txt_password_required">Password required</string>
 </resources>
