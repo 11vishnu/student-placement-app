@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Learning/New folder/student-placement-app/PlacementApp/app/src/main/res/layout/add_staff_bottom_sheet_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Learning/New folder/student-placement-app/PlacementApp/app/src/main/res/layout/add_student_bottom_sheet.xml" value="0.25416666666666665" />
+        <entry key="..\:/Learning/New folder/student-placement-app/PlacementApp/app/src/main/res/layout/fragment_student.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/mvish/AndroidStudioProjects/PlacementApp/app/src/main/res/drawable-v24/user_bg.xml" value="0.10092592592592593" />
         <entry key="..\:/Users/mvish/AndroidStudioProjects/PlacementApp/app/src/main/res/font/aldrich.xml" value="0.10092592592592593" />
         <entry key="..\:/Users/mvish/AndroidStudioProjects/PlacementApp/app/src/main/res/layout/activity_login.xml" value="0.1" />

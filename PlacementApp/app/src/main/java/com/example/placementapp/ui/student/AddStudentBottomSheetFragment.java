@@ -19,49 +19,51 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class AddStudentBottomSheetFragment extends BottomSheetDialogFragment {
 
-    AddStaffBottomSheetFragment.AddStaffBottomSheetInterface clickIntrfc = null;
-    public AddStudentBottomSheetFragment(AddStaffBottomSheetFragment.AddStaffBottomSheetInterface intrfc) {
+    AddStudentBottomSheetInterface clickIntrfc = null;
+    public AddStudentBottomSheetFragment(AddStudentBottomSheetInterface intrfc) {
         clickIntrfc = intrfc;
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.add_staff_bottom_sheet_fragment, container, false);
+        return inflater.inflate(R.layout.add_student_bottom_sheet, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TextView btnAddStaff = (TextView) view.findViewById(R.id.btnAddStaff);
-        TextInputEditText staffEmail = (TextInputEditText)view.findViewById(R.id.staffEmilTextInputEditText);
-        TextInputLayout staffEmailLayout = (TextInputLayout)view.findViewById(R.id.staffEmailTextInputLayout);
-        TextInputEditText staffPassword = (TextInputEditText)view.findViewById(R.id.staffPwdTextInputEditText);
-        TextInputLayout staffPasswordLayout = (TextInputLayout)view.findViewById(R.id.staffPasswordTextInputLayout);
-        TextInputEditText staffName = (TextInputEditText)view.findViewById(R.id.staffNameTextInputEditText);
-        TextInputLayout staffNameLayout = (TextInputLayout)view.findViewById(R.id.staffNameTextInputLayout);
 
-        btnAddStaff.setOnClickListener(new View.OnClickListener(){
+
+        TextView btnAddStudent = (TextView) view.findViewById(R.id.btnAddStudent);
+        TextInputEditText studentEmail = (TextInputEditText)view.findViewById(R.id.studentEmilTextInputEditText);
+        TextInputLayout studentEmailLayout = (TextInputLayout)view.findViewById(R.id.studentEmailTextInputLayout);
+        TextInputEditText studentPassword = (TextInputEditText)view.findViewById(R.id.studentPwdTextInputEditText);
+        TextInputLayout studentPasswordLayout = (TextInputLayout)view.findViewById(R.id.studentPasswordTextInputLayout);
+        TextInputEditText studentName = (TextInputEditText)view.findViewById(R.id.studentNameTextInputEditText);
+        TextInputLayout studentNameLayout = (TextInputLayout)view.findViewById(R.id.studentNameTextInputLayout);
+
+        btnAddStudent.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(!TextUtils.isEmpty(staffEmail.getText().toString()) && Patterns.EMAIL_ADDRESS.matcher(staffEmail.getText().toString().trim()).matches()){
-                    if(!TextUtils.isEmpty(staffPassword.getText().toString())){
-                        if(!TextUtils.isEmpty(staffName.getText().toString())){
-                            clickIntrfc.addStaffClick(staffEmail.getText().toString().trim(),staffPassword.getText().toString().trim(),staffName.getText().toString().trim());
+                if((studentEmail.getText() !=null)&&(!TextUtils.isEmpty(studentEmail.getText().toString())) && Patterns.EMAIL_ADDRESS.matcher(studentEmail.getText().toString().trim()).matches()){
+                    if((studentPassword.getText()!=null)&&(!TextUtils.isEmpty(studentPassword.getText().toString()))){
+                        if((studentName.getText()!=null)&&(!TextUtils.isEmpty(studentName.getText().toString()))){
+                            clickIntrfc.addStudentClick(studentEmail.getText().toString().trim(),studentPassword.getText().toString().trim(),studentName.getText().toString().trim());
                         }
                     }else{
-                        staffPasswordLayout.setError(requireContext().getText(R.string.txt_password_required));
+                        studentPasswordLayout.setError(requireContext().getText(R.string.txt_password_required));
                     }
                 }else{
-                    staffEmailLayout.setError(requireContext().getText(R.string.txt_invalid_mail_id));
+                    studentEmailLayout.setError(requireContext().getText(R.string.txt_invalid_mail_id));
                 }
 
             }
         });
     }
 
-    public interface AddStaffBottomSheetInterface{
-        public void  addStaffClick(String email,String pwd,String staffName);
+    public interface AddStudentBottomSheetInterface{
+        public void  addStudentClick(String email,String pwd,String studentName);
     }
 }
 

@@ -1,10 +1,17 @@
 package com.example.placementapp;
 
 import static com.example.placementapp.constants.AppConstants.CONST_FINAL_STAFF_TYPE;
+import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREFERENCE;
+import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_EMAIL_ID;
+import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_UID;
+import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_USER_NAME;
+import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_USER_TYPE;
 import static com.example.placementapp.constants.AppConstants.CONST_VAL_ADMIN_TYPE;
 import static com.example.placementapp.constants.AppConstants.CONST_VAL_STAFF_TYPE;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,6 +47,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     DrawerLayout drawer = null;
     NavigationView navigationView = null;
+
+    private SharedPreferences sh =null;
+    private String userType = "";
 
     private String TAG = "MainActivity";
     @Override
@@ -92,59 +102,75 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Bundle extras = getIntent().getExtras();
 
+        sh = getSharedPreferences(CONST_SHARED_PREFERENCE, Context.MODE_PRIVATE);
+
         Intent i = getIntent();
         User usr = (User)i.getSerializableExtra(AppConstants.USER);
 
-        if(!usr.getUserName().isEmpty()){
+        if((usr!=null)&&(usr.getUserName()!=null)&&(!usr.getUserName().isEmpty())){
             name.setText(usr.getUserName());
-        }
-        if(!usr.getUserType().isEmpty()){
-            emailId.setText(usr.getUserEmailId());
-        }
-
-        if(usr.getUserType().contains(CONST_VAL_ADMIN_TYPE)){
-            mAppBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.nav_home, R.id.nav_staff, R.id.nav_companies,R.id.nav_student,R.id.nav_internship,R.id.nav_logout)
-                    .setOpenableLayout(drawer)
-                    .build();
-            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-            NavigationUI.setupWithNavController(navigationView, navController);
-
-            drawer_menu_staff.setVisible(true);
-            drawer_menu_companies.setVisible(true);
-            drawer_menu_students.setVisible(true);
-            drawer_menu_logout.setVisible(true);
-            drawer_menu_internship.setVisible(true);
-
-
-        }else if (usr.getUserType().contains(CONST_VAL_STAFF_TYPE)){
-            mAppBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.nav_home, R.id.nav_companies,R.id.nav_student,R.id.nav_internship,R.id.nav_logout)
-                    .setOpenableLayout(drawer)
-                    .build();
-            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-            NavigationUI.setupWithNavController(navigationView, navController);
-            drawer_menu_staff.setVisible(false);
-            drawer_menu_students.setVisible(true);
-            drawer_menu_companies.setVisible(true);
-            drawer_menu_logout.setVisible(true);
-            drawer_menu_internship.setVisible(true);
         }else{
-            mAppBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.nav_home, R.id.nav_companies,R.id.nav_logout)
-                    .setOpenableLayout(drawer)
-                    .build();
-            drawer_menu_staff.setVisible(false);
-            drawer_menu_companies.setVisible(true);
-            drawer_menu_students.setVisible(false);
-            drawer_menu_logout.setVisible(true);
-            drawer_menu_internship.setVisible(true);
-            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-            NavigationUI.setupWithNavController(navigationView, navController);
+            String sharedPrefUsername = sh.getString(CONST_SHARED_PREF_USER_NAME, "");
+            name.setText(sharedPrefUsername);
         }
+
+        if((usr!=null)&&(usr.getUserEmailId()!=null)&&(!usr.getUserEmailId().isEmpty())){
+            emailId.setText(usr.getUserEmailId());
+        }else{
+            String sharedPrefEmail = sh.getString(CONST_SHARED_PREF_EMAIL_ID, "");
+            name.setText(sharedPrefEmail);
+        }
+
+        if((usr!=null)&&(usr.getUserType()!=null)&&(!usr.getUserType().isEmpty())){
+            userType = usr.getUserType();
+        }else{
+            String sharedPrefUserType = sh.getString(CONST_SHARED_PREF_USER_TYPE, "");
+            userType = sharedPrefUserType;
+        }
+
+        if(userType.contains(CONST_VAL_ADMIN_TYPE)){
+                mAppBarConfiguration = new AppBarConfiguration.Builder(
+                        R.id.nav_home, R.id.nav_staff, R.id.nav_companies,R.id.nav_student,R.id.nav_internship,R.id.nav_logout)
+                        .setOpenableLayout(drawer)
+                        .build();
+                NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+                NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+                NavigationUI.setupWithNavController(navigationView, navController);
+
+                drawer_menu_staff.setVisible(true);
+                drawer_menu_companies.setVisible(true);
+                drawer_menu_students.setVisible(true);
+                drawer_menu_logout.setVisible(true);
+                drawer_menu_internship.setVisible(true);
+
+
+            }else if (userType.contains(CONST_VAL_STAFF_TYPE)){
+                mAppBarConfiguration = new AppBarConfiguration.Builder(
+                        R.id.nav_home, R.id.nav_companies,R.id.nav_student,R.id.nav_internship,R.id.nav_logout)
+                        .setOpenableLayout(drawer)
+                        .build();
+                NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+                NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+                NavigationUI.setupWithNavController(navigationView, navController);
+                drawer_menu_staff.setVisible(false);
+                drawer_menu_students.setVisible(true);
+                drawer_menu_companies.setVisible(true);
+                drawer_menu_logout.setVisible(true);
+                drawer_menu_internship.setVisible(true);
+            }else{
+                mAppBarConfiguration = new AppBarConfiguration.Builder(
+                        R.id.nav_home, R.id.nav_companies,R.id.nav_logout)
+                        .setOpenableLayout(drawer)
+                        .build();
+                drawer_menu_staff.setVisible(false);
+                drawer_menu_companies.setVisible(true);
+                drawer_menu_students.setVisible(false);
+                drawer_menu_logout.setVisible(true);
+                drawer_menu_internship.setVisible(true);
+                NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+                NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+                NavigationUI.setupWithNavController(navigationView, navController);
+            }
 
         setNavigationViewListener();
 

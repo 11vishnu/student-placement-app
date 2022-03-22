@@ -4,6 +4,7 @@ import static com.example.placementapp.constants.AppConstants.CONST_FINAL_STAFF_
 import static com.example.placementapp.constants.AppConstants.CONST_FINAL_STUDENT_TYPE;
 import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREFERENCE;
 import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_UID;
+import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_USER_TYPE;
 import static com.example.placementapp.constants.AppConstants.CONST_VAL_STAFF_TYPE;
 import static com.example.placementapp.constants.AppConstants.CONST_VAL_STUDENT_TYPE;
 import static com.example.placementapp.constants.AppConstants.USER;
@@ -52,6 +53,7 @@ public class SplashActivity  extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         sh = getSharedPreferences(CONST_SHARED_PREFERENCE, Context.MODE_PRIVATE);
         String sharedPrefUid = sh.getString(CONST_SHARED_PREF_UID, "");
+
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference(USER);
 

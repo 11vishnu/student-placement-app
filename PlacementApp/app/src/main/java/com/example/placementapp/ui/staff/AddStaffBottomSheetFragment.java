@@ -45,9 +45,9 @@ public class AddStaffBottomSheetFragment extends BottomSheetDialogFragment {
         btnAddStaff.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(!TextUtils.isEmpty(staffEmail.getText().toString()) && Patterns.EMAIL_ADDRESS.matcher(staffEmail.getText().toString().trim()).matches()){
-                    if(!TextUtils.isEmpty(staffPassword.getText().toString())){
-                        if(!TextUtils.isEmpty(staffName.getText().toString())){
+                if((staffEmail.getText() !=null)&&(!TextUtils.isEmpty(staffEmail.getText().toString())) && Patterns.EMAIL_ADDRESS.matcher(staffEmail.getText().toString().trim()).matches()){
+                    if((staffPassword.getText()!=null)&&(!TextUtils.isEmpty(staffPassword.getText().toString()))){
+                        if((staffName.getText()!=null)&&(!TextUtils.isEmpty(staffName.getText().toString()))){
                             clickIntrfc.addStaffClick(staffEmail.getText().toString().trim(),staffPassword.getText().toString().trim(),staffName.getText().toString().trim());
                         }
                     }else{

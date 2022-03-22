@@ -3,7 +3,10 @@ package com.example.placementapp.login;
 import static com.example.placementapp.constants.AppConstants.CONST_FINAL_STAFF_TYPE;
 import static com.example.placementapp.constants.AppConstants.CONST_FINAL_STUDENT_TYPE;
 import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREFERENCE;
+import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_EMAIL_ID;
 import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_UID;
+import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_USER_NAME;
+import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_USER_TYPE;
 import static com.example.placementapp.constants.AppConstants.CONST_VAL_STAFF_TYPE;
 import static com.example.placementapp.constants.AppConstants.CONST_VAL_STUDENT_TYPE;
 import static com.example.placementapp.constants.AppConstants.USER;
@@ -109,6 +112,13 @@ public class LoginActivity extends AppCompatActivity {
         myEdit.commit();
     }
 
+    private void setUserDetailsSharedPref(User user) {
+        myEdit.putString(CONST_SHARED_PREF_USER_NAME, user.getUserName());
+        myEdit.putString(CONST_SHARED_PREF_EMAIL_ID, user.getUserEmailId());
+        myEdit.putString(CONST_SHARED_PREF_USER_TYPE, user.getUserTypeConst());
+        myEdit.commit();
+    }
+
     private void getUserType(FirebaseUser user){
         databaseReference.child(user.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -124,6 +134,7 @@ public class LoginActivity extends AppCompatActivity {
                     Gson gson = new Gson();
                     JsonElement jsonElement = gson.toJsonTree(map);
                     User user = gson.fromJson(jsonElement, User.class);
+                    setUserDetailsSharedPref(user);
 
                    //startMainActivity((User) task.getResult().getValue());
                     startMainActivity(user);
