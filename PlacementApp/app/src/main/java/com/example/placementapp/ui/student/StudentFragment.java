@@ -76,6 +76,7 @@ public class StudentFragment extends Fragment implements AddStudentBottomSheetFr
                 textView.setText(s);
             }
         });
+        setHasOptionsMenu(false);
         return root;
     }
 

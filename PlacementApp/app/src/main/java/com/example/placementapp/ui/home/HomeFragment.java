@@ -35,6 +35,8 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+        setHasOptionsMenu(true);
         return root;
     }
 

@@ -19,4 +19,13 @@ public class AppConstants {
     public static final String CONST_VAL_ADMIN_TYPE = "1";
     public static final String CONST_VAL_STAFF_TYPE = "2";
     public static final String CONST_VAL_STUDENT_TYPE = "3";
+
+    public static final String COMPANY = "Company";
+    public static final String COMPANY_NAME = "companyName";
+    public static final String COMPANY_SELECTION_PROCESS = "companySelectionProcess";
+    public static final String COMPANY_BOND = "companyBond";
+    public static final String COMPANY_ELIGIBILITY = "companyEligibility";
+    public static final String COMPANY_REQUIREMENT = "companyRequirement";
+    public static final String COMPANY_ALUMNI_NAME = "companyAlumniName";
+    public static final String COMPANY_ALUMNI_EMAIL = "companyAlumniEmail";
 }

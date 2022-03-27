@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.placementapp.constants.AppConstants;
 import com.example.placementapp.login.LoginActivity;
@@ -90,7 +91,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         TextView name = (TextView) header.findViewById(R.id.name);
         TextView emailId = (TextView)header.findViewById(R.id.textViewEmailId);
 
+      /*  Toolbar actionBarToolBar = (Toolbar) findViewById(R.id.toolbar);
+        actionBarToolBar.inflateMenu(R.menu.menu_toolbar);
 
+        actionBarToolBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if(item.getItemId() == R.menu.menu_toolbar){
+                    Log.d("MainAcgt","option selected");
+                }
+                return false;
+            }
+        });*/
 
         MenuItem drawer_menu_staff = menu.findItem(R.id.nav_staff);
         MenuItem drawer_menu_companies = menu.findItem(R.id.nav_companies);
@@ -236,4 +248,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        if(navController.getCurrentDestination().getId()== R.id.nav_add_company){
+            String sharedPrefUserType = sh.getString(CONST_SHARED_PREF_USER_TYPE, "");
+            userType = sharedPrefUserType;
+            if ((userType.contains(CONST_VAL_STAFF_TYPE)||(userType.contains(CONST_VAL_ADMIN_TYPE)))){
+                getMenuInflater().inflate(R.menu.menu_toolbar, menu);
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+
+
+
 }

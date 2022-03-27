@@ -202,7 +202,6 @@
 
     </ScrollView>
 
-
     <Button
         android:id="@+id/btnAddCompany"
         android:layout_width="197dp"
@@ -214,6 +213,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="@dimen/_20sdp"
+        android:visibility="gone"
         />
 
     <ProgressBar

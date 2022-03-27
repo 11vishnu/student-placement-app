@@ -34,7 +34,11 @@
         android:id="@+id/nav_companies"
         android:name="com.example.placementapp.ui.company.CompanyListFragment"
         android:label="@string/txt_companies"
-        tools:layout="@layout/fragment_company" />
+        tools:layout="@layout/fragment_company" >
+        <action
+            android:id="@+id/action_companies_to_add_company"
+            app:destination="@id/nav_add_company" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_student"
@@ -48,4 +52,10 @@
         android:name="com.example.placementapp.ui.internship.StudentInternshipListFragment"
         android:label="@string/txt_internship"
         tools:layout="@layout/fragment_internship_layout" />
+
+    <fragment
+        android:id="@+id/nav_add_company"
+        android:name="com.example.placementapp.ui.company.AddCompanyFragment"
+        android:label="@string/txt_add_company"
+        tools:layout="@layout/add_company_fragment" />
 </navigation>

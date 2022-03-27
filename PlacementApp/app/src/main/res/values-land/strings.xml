@@ -18,4 +18,8 @@
     <string name="txt_invalid_mail_id">Invalid email id</string>
     <string name="txt_password_required">Password required</string>
     <string name="txt_add_student">Add Student</string>
+    <string name="txt_add_company">Add company</string>
+    <string name="txtEdit">Edit</string>
+    <string name="txt_alumni_name">Alumni name</string>
+    <string name="txt_edit">Edit</string>
 </resources>

@@ -80,6 +80,8 @@ public class StaffFragment extends Fragment implements AddStaffBottomSheetFragme
                 textView.setText(s);
             }
         });
+
+        setHasOptionsMenu(false);
         return root;
     }
 
