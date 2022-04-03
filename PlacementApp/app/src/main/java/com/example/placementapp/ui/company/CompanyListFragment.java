@@ -1,5 +1,7 @@
 package com.example.placementapp.ui.company;
 
+import static com.example.placementapp.constants.AppConstants.ARG_COMPANY_ITEM;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,7 +40,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CompanyListFragment extends Fragment {
+public class CompanyListFragment extends Fragment implements RecyclerviewItemAdapter.CompanyItemInterface {
 
     private CompanyListViewModel companyListViewModel;
     private FragmentCompanyBinding binding;
@@ -93,7 +95,13 @@ public class CompanyListFragment extends Fragment {
         recyclerviewItemAdapter.setOnItemClickListener(new ClickListener<Company>() {
             @Override
             public void onClick(View view, Company data, int position) {
-                Toast.makeText(requireContext(), "Position = " + position + "\n Item = " + data.getCompanyName(), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(requireContext(), "Position = " + position + "\n Item = " + data.getCompanyName(), Toast.LENGTH_SHORT).show();
+                Gson gson = new Gson();
+                String str = gson.toJson(data);
+                Bundle bundle = new Bundle();
+                bundle.putString(ARG_COMPANY_ITEM,str);
+                Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main).navigate(R.id.action_cmpnylist_to_view_company,bundle);
+
             }
 
         });
@@ -152,5 +160,10 @@ public class CompanyListFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onCompanyClick(Company cmpny) {
+
     }
 }

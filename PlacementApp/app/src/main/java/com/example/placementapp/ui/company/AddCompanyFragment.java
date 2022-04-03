@@ -44,7 +44,6 @@ public class AddCompanyFragment extends Fragment {
                 textView.setText(s);
             }
         });*/
-        setHasOptionsMenu(true);
         return root;
     }
 
@@ -108,18 +107,7 @@ public class AddCompanyFragment extends Fragment {
         });
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.id_menu_edit:{
-                Toast.makeText(requireContext(), "edit icon clicked", Toast.LENGTH_SHORT).show();
-                return true;
-            }
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+
 
 
 }

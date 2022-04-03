@@ -65,5 +65,9 @@ class RecyclerviewItemAdapter extends RecyclerView.Adapter<RecyclerviewItemAdapt
         }
     }
 
+    interface CompanyItemInterface{
+         void  onCompanyClick(Company cmpny);
+    }
+
 
 }

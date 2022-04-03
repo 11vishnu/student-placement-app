@@ -252,7 +252,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        if(navController.getCurrentDestination().getId()== R.id.nav_add_company){
+        if(navController.getCurrentDestination().getId()== R.id.nav_view_company){
             String sharedPrefUserType = sh.getString(CONST_SHARED_PREF_USER_TYPE, "");
             userType = sharedPrefUserType;
             if ((userType.contains(CONST_VAL_STAFF_TYPE)||(userType.contains(CONST_VAL_ADMIN_TYPE)))){

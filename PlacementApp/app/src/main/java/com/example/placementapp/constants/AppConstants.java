@@ -28,4 +28,6 @@ public class AppConstants {
     public static final String COMPANY_REQUIREMENT = "companyRequirement";
     public static final String COMPANY_ALUMNI_NAME = "companyAlumniName";
     public static final String COMPANY_ALUMNI_EMAIL = "companyAlumniEmail";
+
+    public static final String ARG_COMPANY_ITEM = "companyItem";
 }

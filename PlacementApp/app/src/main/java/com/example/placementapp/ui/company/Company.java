@@ -11,11 +11,11 @@ public class Company {
     private String companyName;
     private String companyLocation;
     private String companySelectionProcess;
-    private String bond;
-    private String eligibility;
-    private String requirements;
-    private String alumniName;
-    private String alumniEmailId;
+    private String companyBond;
+    private String companyEligibility;
+    private String companyRequirement;
+    private String companyAlumniName;
+    private String companyAlumniEmail;
 
     public String getCompanyName() {
         return companyName;
@@ -25,15 +25,15 @@ public class Company {
         this.companyName = companyName;
     }
 
-    public Company(String companyName, String companyLocation, String companySelectionProcess, String bond, String eligibility, String requirements, String alumniName, String alumniEmailId) {
+    public Company(String companyName, String companyLocation, String companySelectionProcess, String companyBond, String companyEligibility, String companyRequirements, String companyAlumniName, String companyAlumniEmail) {
         this.companyName = companyName;
         this.companyLocation = companyLocation;
         this.companySelectionProcess = companySelectionProcess;
-        this.bond = bond;
-        this.eligibility = eligibility;
-        this.requirements = requirements;
-        this.alumniName = alumniName;
-        this.alumniEmailId = alumniEmailId;
+        this.companyBond = companyBond;
+        this.companyEligibility = companyEligibility;
+        this.companyRequirement = companyRequirement;
+        this.companyAlumniName = companyAlumniName;
+        this.companyAlumniEmail = companyAlumniEmail;
     }
 
     public String getCompanyLocation() {
@@ -53,44 +53,44 @@ public class Company {
         this.companySelectionProcess = companySelectionProcess;
     }
 
-    public String getBond() {
-        return bond;
+    public String getCompanyBond() {
+        return companyBond;
     }
 
-    public void setBond(String bond) {
-        this.bond = bond;
+    public void setCompanyBond(String bond) {
+        this.companyBond = bond;
     }
 
-    public String getEligibility() {
-        return eligibility;
+    public String getcompanyEligibility() {
+        return companyEligibility;
     }
 
-    public void setEligibility(String eligibility) {
-        this.eligibility = eligibility;
+    public void setcompanyEligibility(String companyEligibility) {
+        this.companyEligibility = companyEligibility;
     }
 
-    public String getRequirements() {
-        return requirements;
+    public String getcompanyRequirement() {
+        return companyRequirement;
     }
 
-    public void setRequirements(String requirements) {
-        this.requirements = requirements;
+    public void setcompanyRequirement(String companyRequirement) {
+        this.companyRequirement = companyRequirement;
     }
 
-    public String getAlumniName() {
-        return alumniName;
+    public String getcompanyAlumniName() {
+        return companyAlumniName;
     }
 
-    public void setAlumniName(String alumniName) {
-        this.alumniName = alumniName;
+    public void setcompanyAlumniName(String companyAlumniName) {
+        this.companyAlumniName = companyAlumniName;
     }
 
-    public String getAlumniEmailId() {
-        return alumniEmailId;
+    public String getcompanyAlumniEmail() {
+        return companyAlumniEmail;
     }
 
-    public void setAlumniEmailId(String alumniEmailId) {
-        this.alumniEmailId = alumniEmailId;
+    public void setcompanyAlumniEmail(String companyAlumniEmail) {
+        this.companyAlumniEmail = companyAlumniEmail;
     }
 
     @Exclude
@@ -98,11 +98,11 @@ public class Company {
         HashMap<String, Object> result = new HashMap<>();
         result.put(AppConstants.COMPANY_NAME, companyName);
         result.put(AppConstants.COMPANY_SELECTION_PROCESS, companySelectionProcess);
-        result.put(AppConstants.COMPANY_BOND, bond);
-        result.put(AppConstants.COMPANY_ELIGIBILITY, eligibility);
-        result.put(AppConstants.COMPANY_REQUIREMENT, requirements);
-        result.put(AppConstants.COMPANY_ALUMNI_NAME, alumniName);
-        result.put(AppConstants.COMPANY_ALUMNI_EMAIL, alumniEmailId);
+        result.put(AppConstants.COMPANY_BOND, companyBond);
+        result.put(AppConstants.COMPANY_ELIGIBILITY, companyEligibility);
+        result.put(AppConstants.COMPANY_REQUIREMENT, companyRequirement);
+        result.put(AppConstants.COMPANY_ALUMNI_NAME, companyAlumniName);
+        result.put(AppConstants.COMPANY_ALUMNI_EMAIL, companyAlumniEmail);
         return result;
     }
 
