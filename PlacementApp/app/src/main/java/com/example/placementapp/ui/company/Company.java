@@ -16,6 +16,7 @@ public class Company {
     private String companyRequirement;
     private String companyAlumniName;
     private String companyAlumniEmail;
+    private String companyId;
 
     public String getCompanyName() {
         return companyName;
@@ -25,7 +26,7 @@ public class Company {
         this.companyName = companyName;
     }
 
-    public Company(String companyName, String companyLocation, String companySelectionProcess, String companyBond, String companyEligibility, String companyRequirements, String companyAlumniName, String companyAlumniEmail) {
+    public Company(String companyName, String companyLocation, String companySelectionProcess, String companyBond, String companyEligibility, String companyRequirements, String companyAlumniName, String companyAlumniEmail,String companyId) {
         this.companyName = companyName;
         this.companyLocation = companyLocation;
         this.companySelectionProcess = companySelectionProcess;
@@ -34,6 +35,7 @@ public class Company {
         this.companyRequirement = companyRequirement;
         this.companyAlumniName = companyAlumniName;
         this.companyAlumniEmail = companyAlumniEmail;
+        this.companyId = companyId;
     }
 
     public String getCompanyLocation() {
@@ -106,4 +108,11 @@ public class Company {
         return result;
     }
 
+    public String getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
+    }
 }

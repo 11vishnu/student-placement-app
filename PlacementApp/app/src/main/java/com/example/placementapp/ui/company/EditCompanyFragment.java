@@ -1,40 +1,29 @@
 package com.example.placementapp.ui.company;
 
-import static com.example.placementapp.constants.AppConstants.COMPANY;
-import static com.example.placementapp.constants.AppConstants.USER;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.example.placementapp.R;
-import com.example.placementapp.databinding.AddCompanyFragmentBinding;
-import com.example.placementapp.databinding.FragmentCompanyBinding;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
+import com.example.placementapp.databinding.EditCompanyFragmentBinding;
+import com.example.placementapp.databinding.ViewCompanyFragmentBinding;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.core.persistence.CachePolicy;
+import com.google.gson.Gson;
 
-import java.util.Map;
+public class EditCompanyFragment extends Fragment {
 
-public class AddCompanyFragment extends Fragment {
-
-    private AddCompanyFragmentBinding binding;
+    private EditCompanyFragmentBinding binding;
     FirebaseDatabase firebaseDatabase;
+    String cmpnyItem = "";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        binding = AddCompanyFragmentBinding.inflate(inflater, container, false);
+        binding = EditCompanyFragmentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         /*final TextView textView = binding.textSlideshow;
@@ -44,6 +33,7 @@ public class AddCompanyFragment extends Fragment {
                 textView.setText(s);
             }
         });*/
+        setHasOptionsMenu(true);
         return root;
     }
 
@@ -53,7 +43,7 @@ public class AddCompanyFragment extends Fragment {
 
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        binding.btnAddCompany.setOnClickListener(new View.OnClickListener() {
+      /*  binding.btnAddCompany.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String companyName = "",selectionProcess="",bond ="",eligibility ="",requirements="",alumniName="",alumniEmail="";
@@ -85,30 +75,43 @@ public class AddCompanyFragment extends Fragment {
                     alumniEmail = binding.alumniemailidedittext.getText().toString();
                 }
 
-               String key = firebaseDatabase.getReference().push().getKey();
-                Company company = new Company(key,companyName,"inprogress",selectionProcess,bond,eligibility,requirements,alumniName,alumniEmail);
-
+                Company company = new Company(companyName,"inprogress",selectionProcess,bond,eligibility,requirements,alumniName,alumniEmail);
+                String key = firebaseDatabase.getReference().push().getKey();
                 Map<String, Object> postValues = company.toMap();
                 updateCompanyData(key,postValues);
             }
-        });
+        });*/
 
+        setHasOptionsMenu(true);
+
+        cmpnyItem = EditCompanyFragmentArgs.fromBundle(getArguments()).getCompanyItem();
+
+        Gson gson = new Gson();
+
+        Company cmp = gson.fromJson(cmpnyItem,Company.class);
+
+        if((cmp.getCompanyName()!=null)&&(!cmp.getCompanyName().isEmpty())){
+            binding.companyNameEdittext.setText(cmp.getCompanyName());
+        }
+        if((cmp.getcompanyAlumniEmail()!=null)&&(!cmp.getcompanyAlumniEmail().isEmpty())){
+            binding.alumniemailidedittext.setText(cmp.getcompanyAlumniEmail());
+        }
+        if((cmp.getcompanyAlumniName()!=null)&&(!cmp.getcompanyAlumniName().isEmpty())){
+            binding.alumniedittext.setText(cmp.getcompanyAlumniName());
+        }
+        if((cmp.getCompanyBond()!=null)&&(cmp.getCompanyBond()!=null)){
+            binding.bondedittext.setText(cmp.getCompanyBond());
+        }
+        if((cmp.getCompanySelectionProcess()!=null)&&(!cmp.getCompanySelectionProcess().isEmpty())){
+            binding.selectionProcessEdittext.setText(cmp.getCompanySelectionProcess());
+        }
+        if((cmp.getcompanyEligibility()!=null)&&(!cmp.getcompanyEligibility().isEmpty())){
+            binding.eligibilityedittext.setText(cmp.getcompanyEligibility());
+        }
+        if((cmp.getcompanyRequirement()!=null)&&(!cmp.getcompanyRequirement().isEmpty())){
+            binding.requirementsEdittext.setText(cmp.getcompanyRequirement());
+        }
 
     }
-
-    private void updateCompanyData(String ky,Map<String, Object> postValues) {
-        binding.progressBarAddCompany.setVisibility(View.VISIBLE);
-        firebaseDatabase.getReference().child(COMPANY).child(ky).updateChildren(postValues, new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                binding.progressBarAddCompany.setVisibility(View.GONE);
-                Toast.makeText(requireContext(), "user info successfully inserted", Toast.LENGTH_SHORT).show();
-                requireActivity().onBackPressed();
-            }
-        });
-    }
-
-
-
 
 }

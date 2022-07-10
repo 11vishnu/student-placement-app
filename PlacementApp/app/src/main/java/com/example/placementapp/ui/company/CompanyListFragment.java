@@ -132,6 +132,7 @@ public class CompanyListFragment extends Fragment implements RecyclerviewItemAda
                         Gson gson = new Gson();
                         JsonElement jsonElement = gson.toJsonTree(msgMap);
                         Company company = gson.fromJson(jsonElement, Company.class);
+                        company.setCompanyId(postSnapshot.getKey());
                         companyItemList.add(company);
                         recyclerviewItemAdapter.notifyDataSetChanged();
                     }
@@ -146,7 +147,7 @@ public class CompanyListFragment extends Fragment implements RecyclerviewItemAda
 
     }
 
-    private void prepareItems(){
+   /* private void prepareItems(){
         companyItemList.add(new Company("Wipro pvt ltd","Chennai","","","","","",""));
         companyItemList.add(new Company("HCL pvt ltd","Bangalore","","","","","",""));
         companyItemList.add(new Company("TCS pvt ltd","Chennai","","","","","",""));
@@ -154,7 +155,7 @@ public class CompanyListFragment extends Fragment implements RecyclerviewItemAda
         companyItemList.add(new Company("Accenture pvt ltd","Chennai","","","","","",""));
         companyItemList.add(new Company("mphasis pvt ltd","Chennai","","","","","",""));
         recyclerviewItemAdapter.notifyDataSetChanged();
-    }
+    }*/
 
     @Override
     public void onDestroyView() {

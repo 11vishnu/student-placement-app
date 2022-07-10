@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         MenuItem drawer_menu_companies = menu.findItem(R.id.nav_companies);
         MenuItem drawer_menu_students = menu.findItem(R.id.nav_student);
         MenuItem drawer_menu_internship = menu.findItem(R.id.nav_internship);
+        MenuItem drawer_menu_resume = menu.findItem(R.id.nav_upload_resume);
         MenuItem drawer_menu_logout = menu.findItem(R.id.nav_logout);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -154,6 +155,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 drawer_menu_students.setVisible(true);
                 drawer_menu_logout.setVisible(true);
                 drawer_menu_internship.setVisible(true);
+                drawer_menu_resume.setVisible(false);
 
 
             }else if (userType.contains(CONST_VAL_STAFF_TYPE)){
@@ -169,9 +171,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 drawer_menu_companies.setVisible(true);
                 drawer_menu_logout.setVisible(true);
                 drawer_menu_internship.setVisible(true);
+                drawer_menu_resume.setVisible(false);
             }else{
                 mAppBarConfiguration = new AppBarConfiguration.Builder(
-                        R.id.nav_home, R.id.nav_companies,R.id.nav_logout)
+                        R.id.nav_home, R.id.nav_companies,R.id.nav_upload_resume,R.id.nav_logout)
                         .setOpenableLayout(drawer)
                         .build();
                 drawer_menu_staff.setVisible(false);
@@ -179,6 +182,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 drawer_menu_students.setVisible(false);
                 drawer_menu_logout.setVisible(true);
                 drawer_menu_internship.setVisible(true);
+                drawer_menu_resume.setVisible(true);
                 NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
                 NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
                 NavigationUI.setupWithNavController(navigationView, navController);
@@ -224,6 +228,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_internship: {
                 NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
                 navController.navigate(R.id.nav_internship);
+                break;
+            }
+            case R.id.nav_upload_resume:{
+                Toast.makeText(this,"upload resume selected",Toast.LENGTH_LONG).show();
+                NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+                navController.navigate(R.id.nav_upload_resume);
                 break;
             }
 

@@ -26,6 +26,12 @@
             android:id="@+id/nav_internship"
             android:icon="@drawable/ic_internship"
             android:title="@string/txt_internship" />
+
+        <item
+            android:id="@+id/nav_upload_resume"
+            android:icon="@drawable/ic_pdf"
+            android:title="@string/txt_upload_resume" />
+
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_logout"

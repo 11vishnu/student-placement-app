@@ -1,5 +1,6 @@
 package com.example.placementapp.ui.company;
 
+import static com.example.placementapp.constants.AppConstants.ARG_COMPANY_ITEM;
 import static com.example.placementapp.constants.AppConstants.COMPANY;
 import static com.example.placementapp.constants.AppConstants.USER;
 
@@ -15,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavArgs;
+import androidx.navigation.Navigation;
 
 import com.example.placementapp.R;
 import com.example.placementapp.databinding.AddCompanyFragmentBinding;
@@ -34,6 +36,7 @@ public class ViewCompanyFragment extends Fragment {
     private ViewCompanyFragmentBinding binding;
     FirebaseDatabase firebaseDatabase;
     String cmpnyItem = "";
+    Company cmp = null;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -105,7 +108,7 @@ public class ViewCompanyFragment extends Fragment {
 
         Gson gson = new Gson();
 
-        Company cmp = gson.fromJson(cmpnyItem,Company.class);
+        cmp = gson.fromJson(cmpnyItem,Company.class);
 
         if((cmp.getCompanyName()!=null)&&(!cmp.getCompanyName().isEmpty())){
             binding.companyNameEdittext.setText(cmp.getCompanyName());
@@ -137,6 +140,12 @@ public class ViewCompanyFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.id_menu_edit:{
                 Toast.makeText(requireContext(), "edit icon clicked", Toast.LENGTH_SHORT).show();
+                Gson gson = new Gson();
+                String str = gson.toJson(cmp);
+                Bundle bundle = new Bundle();
+                bundle.putString(ARG_COMPANY_ITEM,str);
+                Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main).navigate(R.id.action_view_cmpny_to_edit_company,bundle);
+
                 return true;
             }
             default:
