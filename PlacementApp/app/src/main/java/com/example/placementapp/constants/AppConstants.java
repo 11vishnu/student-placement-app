@@ -10,11 +10,15 @@ public class AppConstants {
     public static final String USER_TYPE_CONST = "userTypeConst";
     public static final String USER_NAME_CONST = "userName";
     public static final String USER_EMAIL_CONST = "emailId";
+    public static final String USER_UPLOAD_PDF = "uploadPdf";
     public static final String CONST_SHARED_PREFERENCE = "SharedPreference";
     public static final String CONST_SHARED_PREF_UID = "SharedPrefUid";
     public static final String CONST_SHARED_PREF_USER_NAME = "SharedPrefUserName";
     public static final String CONST_SHARED_PREF_EMAIL_ID = "SharedPrefUserEmailId";
     public static final String CONST_SHARED_PREF_USER_TYPE = "SharedPrefUserType";
+    public static final String CONST_SHARED_PREF_UPLOAD_PDF = "SharedPrefUploadPdf";
+    public static final String CONST_SHARED_PREF_UPLOAD_RESUME_NAME = "SharedPrefResumeName";
+    public static final String CONST_SHARED_PREF_UPLOAD_RESUME_URL = "SharedPrefResumeUrl";
 
     public static final String CONST_VAL_ADMIN_TYPE = "1";
     public static final String CONST_VAL_STAFF_TYPE = "2";

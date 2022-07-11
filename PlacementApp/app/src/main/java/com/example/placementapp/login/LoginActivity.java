@@ -5,6 +5,9 @@ import static com.example.placementapp.constants.AppConstants.CONST_FINAL_STUDEN
 import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREFERENCE;
 import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_EMAIL_ID;
 import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_UID;
+import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_UPLOAD_PDF;
+import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_UPLOAD_RESUME_NAME;
+import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_UPLOAD_RESUME_URL;
 import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_USER_NAME;
 import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_USER_TYPE;
 import static com.example.placementapp.constants.AppConstants.CONST_VAL_STAFF_TYPE;
@@ -116,6 +119,13 @@ public class LoginActivity extends AppCompatActivity {
         myEdit.putString(CONST_SHARED_PREF_USER_NAME, user.getUserName());
         myEdit.putString(CONST_SHARED_PREF_EMAIL_ID, user.getUserEmailId());
         myEdit.putString(CONST_SHARED_PREF_USER_TYPE, user.getUserTypeConst());
+
+        if((user!=null)&&(user.getUploadPdf()!=null)){
+            User.UploadPdf uploadPdf = user.getUploadPdf();
+            myEdit.putString(CONST_SHARED_PREF_UPLOAD_RESUME_NAME, uploadPdf.getName());
+            myEdit.putString(CONST_SHARED_PREF_UPLOAD_RESUME_URL, uploadPdf.getUrl());
+        }
+
         myEdit.commit();
     }
 
@@ -137,6 +147,8 @@ public class LoginActivity extends AppCompatActivity {
                     setUserDetailsSharedPref(user);
 
                    //startMainActivity((User) task.getResult().getValue());
+
+                    Log.d("LoginAct",map.toString());
                     startMainActivity(user);
                 }
             }

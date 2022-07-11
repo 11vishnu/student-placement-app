@@ -1,7 +1,10 @@
 package com.example.placementapp.ui.resume;
 
 import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREFERENCE;
+import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_EMAIL_ID;
 import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_UID;
+import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_UPLOAD_RESUME_NAME;
+import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_UPLOAD_RESUME_URL;
 import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_USER_TYPE;
 import static com.example.placementapp.constants.AppConstants.USER;
 
@@ -48,6 +51,8 @@ public class ResumeFragment extends Fragment {
     StorageReference storageReference;
     DatabaseReference databaseReference;
     private SharedPreferences sh =null;
+    String sharedPrefResumeName = "";
+    String sharedPrefResumeUrl = "";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -75,6 +80,12 @@ public class ResumeFragment extends Fragment {
             }
         });
 
+        String sharedPrefResumeName = sh.getString(CONST_SHARED_PREF_UPLOAD_RESUME_NAME, "");
+        String sharedPrefResumeUrl = sh.getString(CONST_SHARED_PREF_UPLOAD_RESUME_URL,"");
+
+        if(((sharedPrefResumeName!=null)&&(!sharedPrefResumeName.isEmpty()))&&((sharedPrefResumeUrl!=null)&&(!sharedPrefResumeUrl.isEmpty()))){
+            binding.txtViewResume.setText(sharedPrefResumeName);
+        }
     }
 
     private void selectPdf() {

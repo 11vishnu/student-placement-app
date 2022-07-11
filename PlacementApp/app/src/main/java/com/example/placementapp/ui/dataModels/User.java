@@ -11,6 +11,30 @@ public class User implements Serializable {
     String userTypeConst;
     String userName;
     String emailId;
+    UploadPdf uploadPdf;
+
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public User(String userTypeConst, String userName, String emailId, UploadPdf uploadPdf) {
+        this.userTypeConst = userTypeConst;
+        this.userName = userName;
+        this.emailId = emailId;
+        this.uploadPdf = uploadPdf;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
+    public UploadPdf getUploadPdf() {
+        return uploadPdf;
+    }
+
+    public void setUploadPdf(UploadPdf uploadPdf) {
+        this.uploadPdf = uploadPdf;
+    }
 
     public String getUserTypeConst() {
         return userTypeConst;
@@ -56,7 +80,35 @@ public class User implements Serializable {
         result.put(AppConstants.USER_TYPE_CONST, userTypeConst);
         result.put(AppConstants.USER_NAME_CONST, userName);
         result.put(AppConstants.USER_EMAIL_CONST, emailId);
+        result.put(AppConstants.USER_UPLOAD_PDF,uploadPdf);
         return result;
+    }
+
+
+    public static class UploadPdf implements Serializable{
+        String name;
+        String url;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
+        public UploadPdf(String name, String url) {
+            this.name = name;
+            this.url = url;
+        }
     }
 }
 
