@@ -62,7 +62,13 @@
         android:id="@+id/nav_upload_resume"
         android:name="com.example.placementapp.ui.resume.ResumeFragment"
         android:label="@string/txt_internship"
-        tools:layout="@layout/resume_fragment" />
+        tools:layout="@layout/resume_fragment">
+
+        <action
+            android:id="@+id/action_view_upload_resume_to_view_pdf"
+            app:destination="@id/nav_pdf_viewer">
+        </action>
+    </fragment>
 
     <fragment
         android:id="@+id/nav_add_company"
@@ -95,6 +101,17 @@
         tools:layout="@layout/edit_company_fragment">
         <argument
             android:name="companyItem"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_pdf_viewer"
+        android:name="com.example.placementapp.ui.resume.ViewPdfFragment"
+        android:label="@string/txt_view_pdf"
+        tools:layout="@layout/fragment_view_pdf">
+
+        <argument
+            android:name="pdfUrl"
             app:argType="string" />
     </fragment>
 

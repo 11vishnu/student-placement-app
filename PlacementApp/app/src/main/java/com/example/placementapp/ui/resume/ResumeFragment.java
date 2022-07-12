@@ -1,5 +1,7 @@
 package com.example.placementapp.ui.resume;
 
+import static com.example.placementapp.constants.AppConstants.ARG_COMPANY_ITEM;
+import static com.example.placementapp.constants.AppConstants.ARG_PDF_URL;
 import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREFERENCE;
 import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_EMAIL_ID;
 import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_UID;
@@ -9,8 +11,10 @@ import static com.example.placementapp.constants.AppConstants.CONST_SHARED_PREF_
 import static com.example.placementapp.constants.AppConstants.USER;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -28,7 +32,9 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import com.example.placementapp.R;
 import com.example.placementapp.databinding.EditCompanyFragmentBinding;
 import com.example.placementapp.databinding.ResumeFragmentBinding;
 import com.example.placementapp.ui.company.Company;
@@ -84,8 +90,46 @@ public class ResumeFragment extends Fragment {
         String sharedPrefResumeUrl = sh.getString(CONST_SHARED_PREF_UPLOAD_RESUME_URL,"");
 
         if(((sharedPrefResumeName!=null)&&(!sharedPrefResumeName.isEmpty()))&&((sharedPrefResumeUrl!=null)&&(!sharedPrefResumeUrl.isEmpty()))){
+            binding.txtViewResume.setVisibility(View.VISIBLE);
             binding.txtViewResume.setText(sharedPrefResumeName);
+        }else{
+            binding.txtViewResume.setVisibility(View.GONE);
         }
+
+        binding.txtViewResume.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                CharSequence options[] = new CharSequence[]{
+                        "Download",
+                        "View",
+                        "Cancel"
+                };
+                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                builder.setTitle("Choose One");
+                builder.setItems(options, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // we will be downloading the pdf
+                        if (which == 0) {
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(sharedPrefResumeUrl));
+                            startActivity(intent);
+                        }
+                        // We will view the pdf
+                        if (which == 1) {
+                           /* Intent intent = new Intent(v.getContext(), ViewPdfActivity.class);
+                            intent.putExtra("url", message);
+                            startActivity(intent);*/
+                            Toast.makeText(requireContext(),"view pdf selected ",Toast.LENGTH_LONG).show();
+
+                            Bundle bundle = new Bundle();
+                            bundle.putString(ARG_PDF_URL,sharedPrefResumeUrl);
+                            Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main).navigate(R.id.action_view_upload_resume_to_view_pdf,bundle);
+                        }
+                    }
+                });
+                builder.show();
+            }
+        });
     }
 
     private void selectPdf() {

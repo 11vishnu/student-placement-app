@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="txt_upload_resume">Upload Resume</string>
+    <string name="txt_view_pdf">View Pdf</string>
 </resources>

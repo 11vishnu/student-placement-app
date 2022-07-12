@@ -25,4 +25,5 @@
     <string name="txt_view_company">View Company</string>
     <string name="txt_edit_company">Edit company</string>
     <string name="txt_upload_resume">Upload Resume</string>
+    <string name="txt_view_pdf">View Pdf</string>
 </resources>
