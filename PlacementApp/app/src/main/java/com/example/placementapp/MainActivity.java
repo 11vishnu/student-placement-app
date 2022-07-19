@@ -204,8 +204,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()) {
 
             case R.id.nav_logout: {
-                Toast.makeText(this,"logout clicked",Toast.LENGTH_LONG).show();
-                FirebaseAuth.getInstance().signOut();
+                 FirebaseAuth.getInstance().signOut();
                 startLoginActivity();
 
                 break;
@@ -231,7 +230,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             }
             case R.id.nav_upload_resume:{
-                Toast.makeText(this,"upload resume selected",Toast.LENGTH_LONG).show();
                 NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
                 navController.navigate(R.id.nav_upload_resume);
                 break;
@@ -275,6 +273,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             return false;
         }
     }
+
+
 
 
 

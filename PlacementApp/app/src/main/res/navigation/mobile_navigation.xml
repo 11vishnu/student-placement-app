@@ -61,7 +61,7 @@
     <fragment
         android:id="@+id/nav_upload_resume"
         android:name="com.example.placementapp.ui.resume.ResumeFragment"
-        android:label="@string/txt_internship"
+        android:label="@string/txt_upload_resume"
         tools:layout="@layout/resume_fragment">
 
         <action

@@ -48,14 +48,14 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/selectionProcess"
+                android:id="@+id/interviewMode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
                 android:layout_marginBottom="527dp"
-                android:hint="Selection Process"
+                android:hint="Interview Mode Eg : offline or Online"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +64,7 @@
                 android:textColorHint="@color/blue">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/selectionProcessEdittext"
+                    android:id="@+id/interviewModeEdittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/sky_blue"
@@ -75,22 +75,22 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/bond"
+                android:id="@+id/companyLocation"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
-                android:hint="Bond"
-                app:layout_constraintEnd_toEndOf="@+id/selectionProcess"
-                app:layout_constraintStart_toStartOf="@+id/selectionProcess"
-                app:layout_constraintTop_toBottomOf="@+id/selectionProcess"
+                android:hint="Company Location"
+                app:layout_constraintEnd_toEndOf="@+id/interviewMode"
+                app:layout_constraintStart_toStartOf="@+id/interviewMode"
+                app:layout_constraintTop_toBottomOf="@+id/interviewMode"
                 app:boxStrokeColor="@color/text_input_hint"
                 android:textColorHint="@color/blue">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/bondedittext"
+                    android:id="@+id/companyLocationedittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/sky_blue"
@@ -101,22 +101,22 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/eligibility"
+                android:id="@+id/stipend"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
-                android:hint="Eligibility"
-                app:layout_constraintEnd_toEndOf="@+id/bond"
-                app:layout_constraintStart_toStartOf="@+id/bond"
-                app:layout_constraintTop_toBottomOf="@+id/bond"
+                android:hint="Stipend"
+                app:layout_constraintEnd_toEndOf="@+id/companyLocation"
+                app:layout_constraintStart_toStartOf="@+id/companyLocation"
+                app:layout_constraintTop_toBottomOf="@+id/companyLocation"
                 app:boxStrokeColor="@color/text_input_hint"
                 android:textColorHint="@color/blue">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/eligibilityedittext"
+                    android:id="@+id/stipendedittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/sky_blue"
@@ -127,22 +127,22 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/requirements"
+                android:id="@+id/domain"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
-                android:hint="Requirements"
+                android:hint="Domain"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/eligibility"
+                app:layout_constraintTop_toBottomOf="@+id/stipend"
                 app:boxStrokeColor="@color/text_input_hint"
                 android:textColorHint="@color/blue">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/requirementsEdittext"
+                    android:id="@+id/domainEdittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/sky_blue"
@@ -153,22 +153,22 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/alumni"
+                android:id="@+id/technologyExplored"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
-                android:hint="@string/txt_alumni_name"
+                android:hint="@string/txt_technology_explored"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/requirements"
+                app:layout_constraintTop_toBottomOf="@+id/domain"
                 app:boxStrokeColor="@color/text_input_hint"
                 android:textColorHint="@color/blue">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/alumniedittext"
+                    android:id="@+id/technologyExplorededittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/sky_blue"
@@ -179,7 +179,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/alumniemail"
+                android:id="@+id/duration"
                 android:hint="Alumni email id"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
@@ -189,12 +189,12 @@
                 android:layout_marginEnd="@dimen/_15sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/alumni"
+                app:layout_constraintTop_toBottomOf="@+id/technologyExplored"
                 app:boxStrokeColor="@color/text_input_hint"
                 android:textColorHint="@color/blue">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/alumniemailidedittext"
+                    android:id="@+id/durationidedittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/sky_blue"
@@ -205,42 +205,16 @@
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/cmpnyLocation"
-                android:hint="Company Location"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/alumniemail"
-                app:boxStrokeColor="@color/text_input_hint"
-                android:textColorHint="@color/sky_blue">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/companyLocationEdittext"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/sky_blue"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:textSize="@dimen/_14sdp"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 
     <Button
-        android:id="@+id/btnAddCompany"
+        android:id="@+id/btnAddInternship"
         android:layout_width="197dp"
         android:layout_height="57dp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:text="Add Company"
+        android:text="Add Internship"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -250,7 +224,7 @@
         />
 
     <ProgressBar
-        android:id="@+id/progressBarAddCompany"
+        android:id="@+id/progressBarAddInternship"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"

@@ -198,6 +198,32 @@
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/cmpnyLocation"
+                android:hint="Company Location"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/alumniemail"
+                app:boxStrokeColor="@color/text_input_hint"
+                android:textColorHint="@color/sky_blue">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/companyLocationEdittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/sky_blue"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_14sdp"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

@@ -4,7 +4,10 @@ import static com.example.placementapp.constants.AppConstants.ARG_COMPANY_ITEM;
 import static com.example.placementapp.constants.AppConstants.COMPANY;
 import static com.example.placementapp.constants.AppConstants.USER;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -131,6 +134,11 @@ public class ViewCompanyFragment extends Fragment {
         if((cmp.getcompanyRequirement()!=null)&&(!cmp.getcompanyRequirement().isEmpty())){
             binding.requirementsEdittext.setText(cmp.getcompanyRequirement());
         }
+        if((cmp.getCompanyLocation()!=null)&&(!cmp.getCompanyLocation().isEmpty())){
+            binding.companyLocationEdittext.setText(cmp.getCompanyLocation());
+        }
+
+
     }
 
 
@@ -148,9 +156,37 @@ public class ViewCompanyFragment extends Fragment {
 
                 return true;
             }
+            case R.id.id_menu_remove:{
+
+                new AlertDialog.Builder(requireContext())
+                        .setTitle("Delete Company")
+                        .setMessage("Are you sure you want to delete this company?")
+                        // Specifying a listener allows you to take an action before dismissing the dialog.
+                        // The dialog is automatically dismissed when a dialog button is clicked.
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Continue with delete operation
+                                deleteCompanyData(cmp.getCompanyId());
+                                Toast.makeText(requireContext(),"Company deleted successfully",Toast.LENGTH_LONG).show();
+                                requireActivity().onBackPressed();
+                            }
+                        })
+
+                        // A null listener allows the button to dismiss the dialog and take no further action.
+                        .setNegativeButton(android.R.string.no, null)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
+            }
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+
+    private void deleteCompanyData(String ky) {
+        binding.progressBarAddCompany.setVisibility(View.VISIBLE);
+        Log.d("View","key "+ky );
+        firebaseDatabase.getReference().child(COMPANY).child(ky).removeValue();
     }
 
 

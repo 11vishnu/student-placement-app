@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -92,6 +93,8 @@ public class CompanyListFragment extends Fragment implements RecyclerviewItemAda
         binding.recycleView.setItemAnimator(new DefaultItemAnimator());
         binding.recycleView.setAdapter(recyclerviewItemAdapter);
 
+        ProgressBar prgrsBar = (ProgressBar) view.findViewById(R.id.progressBarCompanyList);
+
         recyclerviewItemAdapter.setOnItemClickListener(new ClickListener<Company>() {
             @Override
             public void onClick(View view, Company data, int position) {
@@ -117,11 +120,12 @@ public class CompanyListFragment extends Fragment implements RecyclerviewItemAda
        // prepareItems();
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        binding.progressBarCompanyList.setVisibility(View.VISIBLE);
+        prgrsBar.setVisibility(View.VISIBLE);
         firebaseDatabase.getReference(AppConstants.COMPANY).orderByKey().addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                binding.progressBarCompanyList.setVisibility(View.GONE);
+                //hideSpinner();
+                prgrsBar.setVisibility(View.GONE);
                 final Map<String, Company> messageMap = new LinkedHashMap<String, Company>();
                 companyItemList.clear();
                 if (dataSnapshot != null && dataSnapshot.getValue() != null) {
@@ -141,9 +145,13 @@ public class CompanyListFragment extends Fragment implements RecyclerviewItemAda
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                binding.progressBarCompanyList.setVisibility(View.GONE);
+                prgrsBar.setVisibility(View.GONE);
             }
         });
+
+    }
+
+    private void hideSpinner() {
 
     }
 

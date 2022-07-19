@@ -56,7 +56,7 @@ public class AddCompanyFragment extends Fragment {
         binding.btnAddCompany.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String companyName = "",selectionProcess="",bond ="",eligibility ="",requirements="",alumniName="",alumniEmail="";
+                String companyName = "",selectionProcess="",bond ="",eligibility ="",requirements="",alumniName="",alumniEmail="",cmpnyLocation="";
                 if((binding.companyNameEdittext.getText().toString()!=null)&&(!binding.companyNameEdittext.getText().toString().isEmpty())){
                     companyName = binding.companyNameEdittext.getText().toString();
                 }
@@ -85,8 +85,13 @@ public class AddCompanyFragment extends Fragment {
                     alumniEmail = binding.alumniemailidedittext.getText().toString();
                 }
 
+                if((binding.companyLocationEdittext.getText().toString()!=null)&&(!binding.companyLocationEdittext.getText().toString().isEmpty())){
+                    cmpnyLocation = binding.companyLocationEdittext.getText().toString();
+                }
+
                String key = firebaseDatabase.getReference().push().getKey();
-                Company company = new Company(key,companyName,"inprogress",selectionProcess,bond,eligibility,requirements,alumniName,alumniEmail);
+               // Company company = new Company(key,companyName,"inprogress",selectionProcess,bond,eligibility,requirements,alumniName,alumniEmail);
+                Company company = new Company(companyName,cmpnyLocation,selectionProcess,bond,eligibility,requirements,alumniName,alumniEmail,key);
 
                 Map<String, Object> postValues = company.toMap();
                 updateCompanyData(key,postValues);

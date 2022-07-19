@@ -32,7 +32,7 @@ public class Company {
         this.companySelectionProcess = companySelectionProcess;
         this.companyBond = companyBond;
         this.companyEligibility = companyEligibility;
-        this.companyRequirement = companyRequirement;
+        this.companyRequirement = companyRequirements;
         this.companyAlumniName = companyAlumniName;
         this.companyAlumniEmail = companyAlumniEmail;
         this.companyId = companyId;
@@ -105,6 +105,7 @@ public class Company {
         result.put(AppConstants.COMPANY_REQUIREMENT, companyRequirement);
         result.put(AppConstants.COMPANY_ALUMNI_NAME, companyAlumniName);
         result.put(AppConstants.COMPANY_ALUMNI_EMAIL, companyAlumniEmail);
+        result.put(AppConstants.COMPANY_LOCATION, companyLocation);
         return result;
     }
 

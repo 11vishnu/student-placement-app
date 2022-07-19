@@ -76,10 +76,10 @@ public class StudentInternshipListFragment  extends Fragment {
     }
 
     private void prepareItems(){
-        internshipList.add(new InternshipDataModel("12341","6 months","Student a","companu a name pvt ltd"));
-        internshipList.add(new InternshipDataModel("133441","9 months","Student b","companu b name pvt ltd"));
-        internshipList.add(new InternshipDataModel("135541","3 months","Student c","companu c name pvt ltd"));
-        internshipList.add(new InternshipDataModel("135566","1 y 3 mts","Student d","companu d name pvt ltd"));
+        internshipList.add(new InternshipDataModel("offline","cbe","6 months","Student a","companu a name pvt ltd"));
+        internshipList.add(new InternshipDataModel("offline","chn","9 months","Student b","companu b name pvt ltd"));
+        internshipList.add(new InternshipDataModel("offline","trc","3 months","Student c","companu c name pvt ltd"));
+        internshipList.add(new InternshipDataModel("offline","mdu","1 y 3 mts","Student d","companu d name pvt ltd"));
         internshipListAdapter.notifyDataSetChanged();
     }
 
